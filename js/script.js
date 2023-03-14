@@ -32,7 +32,7 @@ for (let i = 0; i < image.length; i++){
 }
 slide.innerHTML += boxSlide;
 
-document.querySelectorAll('.boxSlide')[currentIndex].classList.add('.active');
+document.querySelectorAll('.box-img')[currentIndex].classList.add('active');
 
 
 // FUNZIONI
@@ -42,22 +42,24 @@ console.log(up, down);
 up.addEventListener('click', goUp);
 
 function goUp(){
-    document.querySelectorAll('.boxSlide')[currentIndex].classList.remove('active');
-    if (currentIndex === image.length - 1){
-        currentIndex = 0;
+    document.querySelectorAll('.box-img')[currentIndex].classList.remove('active');
+    if (currentIndex < 0){
+        currentIndex  === image.length - 1;
     } else {
-        currentIndex++;
+        currentIndex--;
     }
-    document.querySelectorAll('.boxSlide')[currentIndex].classList.add('active')
+    document.querySelectorAll('.box-img')[currentIndex].classList.add('active');
+    console.log(goUp);
 }
+
 down.addEventListener('click', goDown);
 
 function goDown(){
-    document.querySelectorAll('.boxSlide')[currentIndex].classList.remove('active');
+    document.querySelectorAll('.box-img')[currentIndex].classList.remove('active');
     if (currentIndex === image.length - 1){
         currentIndex = 0;
     } else {
         currentIndex--;
     }
-    document.querySelectorAll('.boxSlide')[currentIndex].classList.add('active')
+    document.querySelectorAll('.box-img')[currentIndex].classList.add('active')
 }

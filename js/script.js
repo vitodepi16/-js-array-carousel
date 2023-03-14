@@ -16,9 +16,11 @@ const image = [
 
 
 // SECTION COSTANTI/VARIABILI
-
-const slide = document.querySelector('.slide');
 let boxSlide = '';
+let currentIndex = 0;
+const slide = document.querySelector('.slide');
+
+
 // CICLI
 
 for (let i = 0; i < image.length; i++){
@@ -26,8 +28,36 @@ for (let i = 0; i < image.length; i++){
     <img src="${image[i]}" alt="superhero-${i}}">
     </div> 
     `;
+
 }
 slide.innerHTML += boxSlide;
 
-document.querySelectorAll('.box-img');
+document.querySelectorAll('.boxSlide')[currentIndex].classList.add('.active');
 
+
+// FUNZIONI
+const up = document.querySelector('.up');
+const down = document.querySelector('.down');
+console.log(up, down);
+up.addEventListener('click', goUp);
+
+function goUp(){
+    document.querySelectorAll('.boxSlide')[currentIndex].classList.remove('active');
+    if (currentIndex === image.length - 1){
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+    document.querySelectorAll('.boxSlide')[currentIndex].classList.add('active')
+}
+down.addEventListener('click', goDown);
+
+function goDown(){
+    document.querySelectorAll('.boxSlide')[currentIndex].classList.remove('active');
+    if (currentIndex === image.length - 1){
+        currentIndex = 0;
+    } else {
+        currentIndex--;
+    }
+    document.querySelectorAll('.boxSlide')[currentIndex].classList.add('active')
+}

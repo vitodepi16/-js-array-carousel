@@ -43,13 +43,14 @@ up.addEventListener('click', goUp);
 
 function goUp(){
     document.querySelectorAll('.box-img')[currentIndex].classList.remove('active');
-    if (currentIndex < 0){
-        currentIndex  === image.length - 1;
+    if (currentIndex === 0){
+        currentIndex  = image.length - 1;
     } else {
-        currentIndex--;
+        currentIndex -- ;
     }
+    console.log(currentIndex);
     document.querySelectorAll('.box-img')[currentIndex].classList.add('active');
-    console.log(goUp);
+    
 }
 
 down.addEventListener('click', goDown);
@@ -59,7 +60,7 @@ function goDown(){
     if (currentIndex === image.length - 1){
         currentIndex = 0;
     } else {
-        currentIndex--;
+        currentIndex++;
     }
     document.querySelectorAll('.box-img')[currentIndex].classList.add('active')
 }

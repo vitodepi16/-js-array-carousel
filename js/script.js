@@ -22,11 +22,13 @@ let boxSlide = '';
 // CICLI
 
 for (let i = 0; i < image.length; i++){
-    boxSlide += `
-    <div class="box-img" >
-    <img src="${image[i]}" alt="superhero-${i}}">
+    boxSlide += ` <div class="box-img" >
+    <img src="./${image[i]}" alt="superhero-${i}}">
     </div> 
-    `
+    `;
+    console.log(boxSlide);
 }
-console.log(boxSlide);
+slide.innerHTML += boxSlide;
+
+// document.querySelectorAll('.box-img');
 
